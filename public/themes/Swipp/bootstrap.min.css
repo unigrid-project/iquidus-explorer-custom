@@ -6585,3 +6585,23 @@ div.nav {
 div.footer-padding {
 	height: 0px;
 }
+
+div.infobox > div.panel-heading {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+div.infobox > div.panel-body > strong {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+	display: inline-block;
+	height: 1.5em;
+}
+
+div.dataTables_wrapper{
+	overflow-x: hidden;
+}
