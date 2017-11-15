@@ -1,24 +1,19 @@
-Iquidus Explorer - 1.6.1
-================
+Iquidus Explorer - Swipp edition
+================================
 
 An open source block explorer written in node.js.
 
+This is the Swipp edition with changes intended for use with the Swipp cryptocurrency project.
+
 ### See it in action
 
-*  [Jumbucks](http://explorer.getjumbucks.com)
-*  [Sphere](http://sphere.iquidus.io)
-*  [SAR](http://explorer.sarcoin.info)
-*  [Vanillacoin](https://blockchain.vanillacoin.net/)
-*  [Neoscoin](http://explorer.infernopool.com/)  
-*  [C2Chain](http://c2chain.info/)
-
-*note: If you would like your instance mentioned here contact me*
+*  [explorer.swippcoin.com](http://explorer.swippcoin.com)
 
 ### Requires
 
 *  node.js >= 0.10.28
 *  mongodb 2.6.x
-*  *coind
+*  swippd
 
 ### Create database
 
@@ -40,7 +35,7 @@ Create user with read/write access:
 
 ### Get the source
 
-    git clone https://github.com/iquidus/explorer explorer
+    git clone https://github.com/teamswipp/explorer
 
 ### Install node modules
 
@@ -104,11 +99,6 @@ Iquidus Explorer is intended to be generic so it can be used with any wallet fol
 
     -daemon -txindex
 
-### Donate
-
-    BTC: 168hdKA3fkccPtkxnX8hBrsxNubvk4udJi
-    JBS: JZp9893FMmrm1681bDuJBU7c6w11kyEY7D
-
 ### Known Issues
 
 **script is already running.**
@@ -116,6 +106,14 @@ Iquidus Explorer is intended to be generic so it can be used with any wallet fol
 If you receive this message when launching the sync script either a) a sync is currently in progress, or b) a previous sync was killed before it completed. If you are certian a sync is not in progress remove the index.pid from the tmp folder in the explorer root directory.
 
     rm tmp/index.pid
+
+**'npm stop' does not kill the node threads**
+
+This usually means that npm was unable to determine the root pid of the thread that started the nodes. This is stored inside cluster.pid - so this can be fixed by killing all the nodes manualle and removing that pid file.
+
+    killall node
+    rm tmp/cluster.pid
+    npm start
 
 **exceeding stack size**
 
@@ -137,8 +135,9 @@ Where [SIZE] is an integer higher than the default.
 
 ### License
 
-Copyright (c) 2015, Iquidus Technology  
-Copyright (c) 2015, Luke Williams  
+Copyright (c) 2015, Iquidus Technology
+Copyright (c) 2015, Luke Williams
+Copyright (c) 2017, Team Swipp
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
