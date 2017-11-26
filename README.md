@@ -135,9 +135,9 @@ Where [SIZE] is an integer higher than the default.
 
 ### License
 
-Copyright (c) 2015, Iquidus Technology
-Copyright (c) 2015, Luke Williams
-Copyright (c) 2017, Team Swipp
+Copyright (c) 2015, Iquidus Technology /
+Copyright (c) 2015, Luke Williams /
+Copyright (c) 2017, Team Swipp /
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
