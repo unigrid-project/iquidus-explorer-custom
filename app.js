@@ -29,24 +29,29 @@
   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-var express = require('express')
-  , path = require('path')
-  , bitcoinapi = require('bitcoin-node-api')
-  , favicon = require('static-favicon')
-  , logger = require('morgan')
-  , cookieParser = require('cookie-parser')
-  , bodyParser = require('body-parser')
-  , settings = require('./lib/settings')
-  , routes = require('./routes/index')
-  , lib = require('./lib/explorer')
-  , db = require('./lib/database')
-  , locale = require('./lib/locale')
-  , request = require('request');
+var express = require('express'),
+  path = require('path'),
+  bitcoinapi = require('bitcoin-node-api'),
+  favicon = require('static-favicon'),
+  logger = require('morgan'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  settings = require('./lib/settings'),
+  routes = require('./routes/index'),
+  lib = require('./lib/explorer'),
+  db = require('./lib/database'),
+  locale = require('./lib/locale'),
+  request = require('request'),
+  RpcClient = require('node-json-rpc2').Client;
 
 var app = express();
 
 // bitcoinapi
 bitcoinapi.setWalletDetails(settings.wallet);
+
+// used for extending with masternode commmands
+var client = new RpcClient(settings.wallet);
+
 if (settings.heavy != true) {
   bitcoinapi.setAccess('only', ['getinfo', 'getnetworkhashps', 'getmininginfo','getdifficulty', 'getconnectioncount',
     'getblockcount', 'getblockhash', 'getblock', 'getrawtransaction', 'getpeerinfo', 'gettxoutsetinfo']);
@@ -80,8 +85,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
+app.use('/api/getmasternodes', function(req, res) {
+  var mn = function(mnp) {
+    client.call({method: 'masternode', params: mnp}, function(ierr, ires) {
+      if (ierr) {
+        console.log(ierr);
+        return;
+      }
+      res.send(ires.result);
+    });
+  }
+  mn(['list', 'pubkey'])
+});
+
 app.use('/api', bitcoinapi.app);
 app.use('/', routes);
+
 app.use('/ext/getmoneysupply', function(req,res){
   lib.get_supply(function(supply){
     res.send(' '+supply);
