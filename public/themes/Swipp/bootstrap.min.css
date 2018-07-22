@@ -6613,3 +6613,35 @@ i.mn-status-open {
 i.mn-status-closed {
     color: #a00;
 }
+
+div.versions {
+    width: 100%;
+    display: inline-flex;
+}
+
+div.versions > div {
+    overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+div.versions > div:last-child {
+    color: transparent;
+    margin-right: 0px;
+}
+
+div.versions > div > span {
+    font-style: italic;
+    font-size: smaller;
+}
+
+td > span {
+    border-radius: 5px;
+    padding: 5px 8px 5px 8px;
+
+}

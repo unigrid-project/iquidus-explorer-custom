@@ -3,35 +3,57 @@ extends layout
 block content   
   script.
     $(document).ready(function(){
-      var ctable = $('#connections-table').dataTable( {  
-        autoWidth: true,      
-        searching: false,
-        ordering: false,
-        responsive: true,
-        lengthChange: true,
-        processing: true,
-        ajax: {
-          url: '/ext/connections',
-          dataSrc: function ( json ) {
-            /*for ( var i=0;i<json.data.length; i++ ) {
-              json.data[i]['timestamp'] = new Date((json.data[i]['timestamp']) * 1000).toUTCString();
-              json.data[i]['txid'] = "<a href='/tx/" + json.data[i]['txid'] + "'>" + json.data[i]['txid'] + "</a>";
-              json.data[i]['blockindex'] = "<a href='/block/" + json.data[i]['blockhash'] + "'>" + json.data[i]['blockindex'] + "</a>";
-              var amount = json.data[i]['total'] / 100000000;
-              json.data[i]['total'] = amount.toFixed(8);
-              json.data[i]['recipients'] = json.data[i]['vout'].length;
-            }*/
-            return json.data;
+      var versions = {};
+      var sum = 0, ctable;
+      var colors = (new ColorScheme).from_hue(200).scheme("tetrade").distance(0.7).variation('pale').colors();
+
+      $.ajax( "/ext/connections" ).done(function(json) {
+        $.each(json.data, function() {
+          var version = this.version.replace("swippcore:","");
+          if (versions[version] == undefined) {
+            versions[version] = 1;
+          } else {
+            versions[version]++;
           }
-        },
-        columns: [
-          { data: 'address', width: '25%' },
-          { data: 'protocol', width: '25%' },
-          { data: 'version', width:'25%' },
-          { data: 'geolocation', width: '25%'}
-        ]
+          sum++;
+        });
+        $.each(Object.keys(versions).sort().reverse(), function(i) {
+          var width = versions[this] / sum * 100;
+          $("<div>" + this + "&nbsp;(<span>" + Math.round(width) + "%)</span></div>").
+            css("width", width + "%").
+            css("background-color", "#" + colors[i]).
+            appendTo("div.versions");
+        });
+
+        ctable = $('#connections-table').dataTable({
+          autoWidth: true,
+          searching: false,
+          ordering: false,
+          responsive: true,
+          lengthChange: true,
+          processing: true,
+          ajax: {
+            url: '/ext/connections',
+            dataSrc: function ( json ) { return json.data; }
+          },
+          columns: [
+            { data: 'address', width: '25%' },
+            { data: 'protocol', width: '25%' },
+            { data: 'version', width:'25%' },
+            { data: 'geolocation', width: '25%'}
+          ],
+          rowCallback: function(row, data) {
+            $.each(Object.keys(versions).sort().reverse(), function(i) {
+              $("td:contains('" + this + "')", row).each(function() {
+                $(this).html("<span>" + $(this).html() + "</span>");
+                $(this).find("span").css("background-color", "#" + colors[i]);
+              });
+            });
+          }
+        });
       });
     });
+  .col-md-12.versions
   .col-md-12(style="margin-bottom: 4%")
     .row.text-center(style='margin-bottom:15px;')
       i #{settings.locale.net_warning}
