@@ -18,11 +18,13 @@ block content
           sum++;
         });
         $.each(Object.keys(versions).sort().reverse(), function(i) {
-          var width = versions[this] / sum * 100;
-          $("<div>" + this + "&nbsp;(<span>" + Math.round(width) + "%)</span></div>").
-            css("width", width + "%").
-            css("background-color", "#" + colors[i]).
-            appendTo("div.versions");
+          if (i < colors.length) {
+            var width = versions[this] / sum * 100;
+            $("<div>" + this + "&nbsp;(<span>" + Math.round(width) + "%)</span></div>").
+              css("width", width + "%").
+              css("background-color", "#" + colors[i]).
+              appendTo("div.versions");
+          }
         });
 
         ctable = $('#connections-table').dataTable({
