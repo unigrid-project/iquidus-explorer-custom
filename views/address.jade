@@ -22,7 +22,7 @@ block content
               if settings.labels[address.a_id].url
                 a(href='#{settings.labels[address.a_id].url}', target='_blank')
                   span.fa.fa-question-circle(style='margin-left:5px;')
-      table.table.table-bordered.table-striped.summary-table 
+      table.table.table-striped.summary-table
         thead
           tr
             if settings.show_sent_received == true
@@ -42,12 +42,11 @@ block content
     .panel.panel-default.hidden-xs
       .panel-heading
         strong #{settings.locale.ex_latest_transactions}
-      table.table.table-bordered.table-striped.history-table
+      table.table.table-striped.history-table
         include ./includes/address_history.jade  
     .panel.panel-default.hidden-lg.hidden-md
       .panel-heading
         strong #{settings.locale.ex_latest_transactions}
-      table.table.table-bordered.table-striped
+      table.table.table-striped
         include ./includes/address_history.jade    
     .footer-padding
-            

@@ -44,7 +44,7 @@ block content
         li(role='presentation')
           a(href='#received', aria-controls='received', role='tab', data-toggle='tab') Received
     .tab-content
-      #balance.tabpanel.tab-pane.active 
+      #balance.tabpanel.tab-pane.active
         include ./includes/rl_balance.jade
       #received.tabpanel.tab-pane
         include ./includes/rl_received.jade
@@ -53,7 +53,7 @@ block content
       #summary-panel.panel.panel-default(style='margin-top:47px;')
         .panel-heading
           h3.panel-title #{settings.locale.rl_wealth}
-        table.table.table-hover.table-bordered
+        table.table.table-hover.table-striped
           thead
             tr
               th

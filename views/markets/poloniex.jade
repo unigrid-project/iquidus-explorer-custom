@@ -56,7 +56,7 @@ block market_view
           strong #{settings.locale.poloniex} - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
           a(href='#')
             span.fa.fa-line-chart.pull-right.view-chart.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title='#{settings.locale.mkt_view_chart}') 
-        table.table.table-bordered.summary-table 
+        table.table.table-bordered.summary-table
           thead
             tr
               th #{settings.locale.mkt_high}
@@ -82,7 +82,7 @@ block market_view
       .panel.panel-default
         .panel-heading
           strong Poloniex - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
-        table.table.table-bordered.summary-table 
+        table.table.table-striped.summary-table
           thead
             tr
               th #{settings.locale.mkt_high}
@@ -103,7 +103,7 @@ block market_view
       .panel.panel-default
         .panel-heading
           h3.panel-title #{settings.locale.mkt_buy_orders}
-        table.table.table-striped.table-bordered.responsive.order-table
+        table.table.table-striped.responsive.order-table
           thead
             tr
               th #{settings.locale.mkt_price} (#{marketdata.exchange})
@@ -124,7 +124,7 @@ block market_view
       .panel.panel-default
         .panel-heading
           h3.panel-title #{settings.locale.mkt_sell_orders}
-        table.table.table-striped.table-bordered.responsive.order-table
+        table.table.table-striped.responsive.order-table
           thead
             tr
               th #{settings.locale.mkt_price} (#{marketdata.exchange})
@@ -145,7 +145,7 @@ block market_view
       .panel.panel-default
         .panel-heading
           h3.panel-title #{settings.locale.mkt_trade_history}
-        table.table.table-hover.history-table.table-bordered(cellspacing="0")
+        table.table.table-hover.history-table.table-striped
           thead
             tr
               th.hidden-xs Type
