@@ -9,13 +9,15 @@ block content
 
       $.ajax( "/ext/connections" ).done(function(json) {
         $.each(json.data, function() {
-          var version = this.version.replace("swippcore:","");
-          if (versions[version] == undefined) {
-            versions[version] = 1;
-          } else {
-            versions[version]++;
+          if (this.version && this.version.length > 0) {
+            var version = this.version.replace("swippcore:","");
+            if (versions[version] == undefined) {
+              versions[version] = 1;
+            } else {
+              versions[version]++;
+            }
+            sum++;
           }
-          sum++;
         });
         $.each(Object.keys(versions).sort().reverse(), function(i) {
           if (i < colors.length) {
