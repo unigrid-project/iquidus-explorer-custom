@@ -6623,18 +6623,17 @@ div.versions {
 
 div.versions > div {
     overflow: hidden;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 1em 20px 1em;
     margin-top: 15px;
     margin-bottom: 30px;
     text-align: center;
     margin-right: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    text-overflow: ellipsis;
 }
 
 div.versions > div:last-child {
-    color: transparent;
     margin-right: 0px;
 }
 
