@@ -6642,12 +6642,26 @@ div.versions > div > span {
     font-size: smaller;
 }
 
-td > span {
+td > span, td.rich-entry > p:nth-child(1) > span {
     border-radius: 5px;
     border: 1px solid #ccc;
     padding: 5px 8px 5px 8px;
 }
 
+p:nth-child(1) > span {
+    margin-left: 10px;
+}
+
 .table > tbody > tr > td, .table > tbody > tr > th {
     border-top: 5px solid transparent;
+}
+
+td.rich-entry > p {
+    margin: 0;
+}
+
+td.rich-entry > p:nth-child(2) {
+    font-style: italic;
+    margin-top: 4px;
+    font-size: smaller;
 }

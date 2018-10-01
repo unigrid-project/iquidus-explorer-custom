@@ -32,6 +32,22 @@ block content
           }
         }
       );
+
+      $("tr > td > p > a:contains('SSmv5uTbc5uPu8N3T51f3ZsYoEC8BS5dnA')," +
+                      "a:contains('SkJ2Fj1Jp8gSexKAZa4PjhSn6ZkDmG6FzA')," +
+                      "a:contains('SSjVqn7Ty3e4DixEknoAfPr2cA1Kt1fiBb')," +
+                      "a:contains('SMftWpsj57TUzr7CS8Ccr6LL7Xx4R5N4hq')," +
+                      "a:contains('Sen7H8ufBeM5UQqj6jwtcA8BAoiU5qFkv9')," +
+                      "a:contains('SYHxQfTTcDo3sZ4WQoK4REohvfgyHpiGsQ')," +
+                      "a:contains('SVxS6drvBysLGnDWMxEXzGFhTos2v8ySrz')," +
+                      "a:contains('SamthfAmaqnZHEAffze6jNNh8vE71p5ecb')").parent()
+        .append("<span>premine</span><br/>").parent()
+        .append("<p>* Premine from the original author.</p>"
+      );
+      $("tr > td > p > a:contains('SXm37UvM5amMyayCLNQTAAN9KQLUMFMTQa')").parent()
+        .append("<span>coinsmarkets</span><br/>").parent()
+        .append("<p>* Funds connected to the coinsmarkets.com exchange.</p>"
+      );
     });
     $(window).resize(function () { 
       pieWealthDist.replot( { resetAxes: false } );
