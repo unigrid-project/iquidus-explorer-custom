@@ -28,8 +28,8 @@ mongoose.connect(dbString, function(err) {
         var i = loop.iteration();
         var address = body[i].addr.split(':')[0];
         db.find_peer(address, function(peer) {
-          if (peer) {
-            // peer already exists
+          if (peer || body[i].version == 0) {
+            // peer already exists or is invalid
             loop.next();
           } else {
             request({uri: 'https://ipapi.co/' + address + '/json', json: true}, function (error, response, geo) {
