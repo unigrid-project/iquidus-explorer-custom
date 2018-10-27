@@ -110,13 +110,13 @@ app.use('/ext/getmoneysupply', function(req, res){
 
         do {
             decimalPos -= 3;
-	    console.log("x: " + supply);
+            console.log("x: " + supply);
             supply = insert(supply, decimalPos, req.query.separator);
             console.log("X: " + supply);
         } while(decimalPos > 3);
 
         function insert(str, index, value){
-	    return str.substr(0, index) + value + str.substr(index);
+            return str.substr(0, index) + value + str.substr(index);
         }
     }
     res.send('' + supply);
