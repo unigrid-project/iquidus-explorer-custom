@@ -93,7 +93,8 @@ app.use('/api/getmasternodes', function(req, res) {
         console.log(ierr);
         return;
       }
-      res.send(ires.result);
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify(ires.result, null, 2));
     });
   }
   mn(['list', 'pubkey'])
