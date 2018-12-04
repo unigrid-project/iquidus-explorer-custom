@@ -155,7 +155,8 @@ app.use('/ext/getdistribution', function(req,res){
   db.get_richlist(settings.coin, function(richlist){
     db.get_stats(settings.coin, function(stats){
       db.get_distribution(richlist, stats, function(dist){
-        res.send(dist);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(dist, null, 2));
       });
     });
   });
