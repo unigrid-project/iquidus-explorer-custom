@@ -164,7 +164,8 @@ app.use('/ext/getdistribution', function(req,res){
 
 app.use('/ext/getlasttxs/:min', function(req,res){
   db.get_last_txs(settings.index.last_txs, (req.params.min * 100000000), function(txs){
-    res.send({data: txs});
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({data: txs}, null, 2));
   });
 });
 
