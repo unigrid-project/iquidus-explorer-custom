@@ -1,19 +1,19 @@
-Iquidus Explorer - Swipp edition
+Iquidus Explorer - UNIGRID edition
 ================================
 
 An open source block explorer written in node.js.
 
-This is the Swipp edition with changes intended for use with the Swipp cryptocurrency project.
+This is the UNIGRID edition with changes intended for use with the UNIGRID cryptocurrency project.
 
 ### See it in action
 
-*  [explorer.swippcoin.com](http://explorer.swippcoin.com)
+*  [explorer.unigrid.org](http://explorer.unigrid.org)
 
 ### Requires
 
 *  node.js >= 0.10.28
 *  mongodb 2.6.x
-*  swippd
+*  unigridd
 
 ### Create database
 
@@ -35,7 +35,7 @@ Create user with read/write access:
 
 ### Get the source
 
-    git clone https://github.com/teamswipp/explorer
+    git clone https://github.com/unigrid-project/UNIGRID-Explorer
 
 ### Install node modules
 
@@ -138,6 +138,7 @@ Where [SIZE] is an integer higher than the default.
 Copyright (c) 2015, Iquidus Technology /
 Copyright (c) 2015, Luke Williams /
 Copyright (c) 2017, Team Swipp /
+Copyright (c) 2019, UNIGRID Project /
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
