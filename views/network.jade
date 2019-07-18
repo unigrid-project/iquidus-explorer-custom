@@ -5,12 +5,12 @@ block content
     $(document).ready(function(){
       var versions = {};
       var sum = 0, ctable;
-      var colors = (new ColorScheme).from_hue(200).scheme("tetrade").distance(0.7).variation('pale').colors();
+      var colors = (new ColorScheme).from_hue(15).scheme("triade").distance(0.1).variation('soft').colors();
 
       $.ajax( "/ext/connections" ).done(function(json) {
         $.each(json.data, function() {
           if (this.version && this.version.length > 0) {
-            var version = this.version.replace("swippcore:","");
+            var version = this.version.replace("Core:","");
             if (versions[version] == undefined) {
               versions[version] = 1;
             } else {

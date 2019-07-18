@@ -164,3 +164,36 @@ tr {
 	bottom: 0px;
 }
 
+i.mn-status-open {
+	color: #0a0;
+}
+
+i.mn-status-closed {
+	color: #a00;
+}
+
+div.versions {
+	width: 100%;
+	display: inline-flex;
+}
+
+div.versions > div {
+	overflow: hidden;
+	padding: 20px 1em 20px 1em;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	text-align: center;
+	margin-right: 5px;
+	border-radius: 5px;
+	/*border: 1px solid #aaa;*/
+	text-overflow: ellipsis;
+}
+
+div.versions > div:last-child {
+	margin-right: 0px;
+}
+
+div.versions > div > span {
+	font-style: italic;
+	font-size: smaller;
+}
