@@ -19,8 +19,8 @@ block content
           dataSrc: function ( json ) {
             var masternodes = [];
 
-            Object.keys(json).forEach(function(e) {
-              masternodes.push({'address': e, 'pubkey': json[e], 'status': iconChecking});
+            json.forEach(function(e) {
+              masternodes.push({'address': e.ipaddr, 'pubkey': e.addr, 'status': iconChecking});
             });
 
             return masternodes;

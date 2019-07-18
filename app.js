@@ -51,7 +51,12 @@ var app = express();
 bitcoinapi.setWalletDetails(settings.wallet);
 
 // used for extending with masternode commmands
-var client = new RpcClient(settings.wallet);
+var client = new RpcClient({
+  host: settings.wallet.host,
+  port: settings.wallet.port,
+  user: settings.wallet.username,
+  pass: settings.wallet.password
+});
 
 if (settings.heavy != true) {
   bitcoinapi.setAccess('only', ['getinfo', 'getnetworkhashps', 'getmininginfo','getdifficulty', 'getconnectioncount',
@@ -97,7 +102,7 @@ app.use('/api/getmasternodes', function(req, res) {
       res.send(JSON.stringify(ires.result, null, 2));
     });
   }
-  mn(['list', 'pubkey'])
+  mn(['list'])
 });
 
 app.use('/api', bitcoinapi.app);
