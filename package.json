@@ -12,26 +12,26 @@
     "babylon": "^6.18.0",
     "bitcoin-node-api": "git+http://git@github.com/unigrid-project/bitcoin-node-api.git",
     "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "debug": "^4.1.1",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
     "destroy": "^1.0.4",
     "express": "^4.17.1",
-    "jade": "^1.11.0",
     "jsonminify": "0.2.3",
     "markdown-js": "0.0.3",
-    "mime": "^2.4.4",
-    "mongodb": "2.0.45",
-    "mongoose": "^5.6.5",
-    "morgan": ">=1.9.1",
+    "mime": "^2.4.6",
+    "mongodb": "3.6.3",
+    "mongoose": "5.11.7",
+    "morgan": "^1.10.0",
     "node-json-rpc2": "~1.1.0",
     "npm-force-resolutions": "0.0.2",
     "portscanner": "2.1.1",
+    "pug": "~3.0.0",
     "qr-image": "~2.0.0",
-    "request": "^2.88.0",
+    "request": "^2.88.2",
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
-    "jasmine": "^3.4.0"
+    "jasmine": "^3.6.3"
   },
   "resolutions": {
     "constantinople": "3.1.1"
