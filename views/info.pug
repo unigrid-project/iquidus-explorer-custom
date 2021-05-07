@@ -6,7 +6,7 @@ block content
       .panel-heading
         strong #{settings.locale.api_title}
       .panel-body
-        :markdown
+        :markdown-it
           *#{settings.locale.api_message}*
           
           ------
@@ -41,7 +41,7 @@ block content
         
 
         if settings.index.show_hashrate == true
-          :markdown
+          :markdown-it
             *  **getmininginfo**  
                *#{settings.locale.api_getmininginfo}*  
                [#{address}/api/getmininginfo](/api/getmininginfo)
@@ -51,7 +51,7 @@ block content
                [#{address}/api/getmasternodes](/api/getmasternodes)
 
         if settings.heavy == true
-          :markdown
+          :markdown-it
             *  **getmaxmoney**  
                *#{settings.locale.api_getmaxmoney}*  
                [#{address}/api/getmaxmoney](/api/getmaxmoney)
@@ -84,7 +84,7 @@ block content
                *#{settings.locale.api_getnextrewardwhenstr}*  
                [#{address}/api/getnextrewardwhenstr](/api/getnextrewardwhenstr)                                                       
 
-        :markdown
+        :markdown-it
           ------
 
           ### Extended API 

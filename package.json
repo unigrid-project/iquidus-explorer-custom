@@ -17,6 +17,7 @@
     "destroy": "^1.0.4",
     "express": "^4.17.1",
     "jsonminify": "0.2.3",
+    "jstransformer-markdown-it": "^2.1.0",
     "markdown-js": "0.0.3",
     "mime": "^2.4.6",
     "mongodb": "3.6.3",
