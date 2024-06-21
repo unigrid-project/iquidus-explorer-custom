@@ -10,7 +10,7 @@
     "menu_markets": "Markets",
     "menu_richlist": "Top 100",
     "menu_reward": "Reward",
-    "menu_masternodes": "Masternodes",
+    "menu_gridnodes": "Gridnodes",
     "menu_movement": "Movement",
     "menu_node": "Nodes",
     "menu_network": "Network",
@@ -76,7 +76,7 @@
     "rl_top100": "Top 76-100",
     "rl_hundredplus": "101+",
 
-    "mn": "Masternodes",
+    "mn": "Gridnodes",
     "mn_pubkey": "Pubkey",
     "mn_status": "Status",
 

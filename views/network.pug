@@ -10,7 +10,11 @@ block content
       $.ajax( "/ext/connections" ).done(function(json) {
         $.each(json.data, function() {
           if (this.version && this.version.length > 0) {
-            var version = this.version.replace("Core:","");
+            var version = this.version.replace("UNIGRID Core:"," ");
+            var version = version.replace("Hedgehog:", " (Hedgehog ");
+            var version = version.replace("/",")");
+            var version = version.replace("@_breakcrypto phantom", "&#x2620;");
+            var version = version.replace("break", "&#x2620;");
             if (versions[version] == undefined) {
               versions[version] = 1;
             } else {
@@ -21,10 +25,16 @@ block content
         });
         $.each(Object.keys(versions).sort().reverse(), function(i) {
           if (i < colors.length) {
+            console.log(this);
             var width = versions[this] / sum * 100;
-            $("<div>" + this + "&nbsp;(<span>" + Math.round(width) + "%)</span></div>").
+            var percentage = this.includes("x2620") ? "" : ("&nbsp;<span>(" + Math.round(width) + "%)</span>");
+            $("<div>" + this + percentage + "</div>").
+              css("display", "flex").
+              css("justify-content", "center").
+              css("align-items", "center").
               css("width", width + "%").
               css("background-color", "#" + colors[i]).
+              css("text-overflow", "clip").
               appendTo("div.versions");
           }
         });
@@ -47,11 +57,12 @@ block content
             { data: 'geolocation', width: '25%'}
           ],
           rowCallback: function(row, data) {
-            $.each(Object.keys(versions).sort().reverse(), function(i) {
-              $("td:contains('" + this + "')", row).each(function() {
-                $(this).html("<span>" + $(this).html() + "</span>");
-                $(this).find("span").css("background-color", "#" + colors[i]);
-              });
+            $("td:contains('UNIGRID'), td:contains('@_breakcrypto'), td:contains('break')", row).each(function() {
+              $(this).html($(this).html().replace("UNIGRID Core:", ""));
+              $(this).html($(this).html().replace("Hedgehog:", " (Hedgehog "));
+              $(this).html($(this).html().replace("/", ")"));
+              $(this).html($(this).html().replace("@_breakcrypto phantom", "&#x2620;"));
+              $(this).html($(this).html().replace("break", "&#x2620;"));
             });
           }
         });

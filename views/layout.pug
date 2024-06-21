@@ -111,11 +111,11 @@ html
                 a.navbar-link(href='/network')
                   span.fa.fa-share-alt
                   span.menu-text #{settings.locale.menu_network}
-            if settings.display.masternodes == true
-              li#masternodes
-                a.navbar-link(href='/masternodes')
+            if settings.display.gridnodes == true
+              li#gridnodes
+                a.navbar-link(href='/gridnodes')
                   span.fa.fa-server
-                  span.menu-text #{settings.locale.menu_masternodes}
+                  span.menu-text #{settings.locale.menu_gridnodes}
             if settings.display.richlist == true
               li#richlist
                 a.navbar-link(href='/richlist')

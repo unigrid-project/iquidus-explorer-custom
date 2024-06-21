@@ -72,9 +72,11 @@ function route_get_tx(res, txid) {
   } else {
     db.get_tx(txid, function(tx) {
       if (tx) {
-        lib.get_blockcount(function(blockcount) {
-          res.render('tx', { active: 'tx', tx: tx, confirmations: settings.confirmations, blockcount: blockcount});
-        });
+        lib.get_rawtransaction(txid, function(rtx) {
+          lib.get_blockcount(function(blockcount) {
+            res.render('tx', { active: 'tx', tx: tx, confirmations: settings.confirmations, blockcount: blockcount, rtx: rtx});
+          });
+	});
       }
       else {
         lib.get_rawtransaction(txid, function(rtx) {
@@ -217,9 +219,9 @@ router.get('/richlist', function(req, res) {
   }
 });
 
-router.get('/masternodes', function(req, res) {
-  if (settings.display.masternodes == true ) {
-    res.render('masternodes', {active: 'masternodes'});
+router.get('/gridnodes', function(req, res) {
+  if (settings.display.gridnodes == true ) {
+    res.render('gridnodes', {active: 'gridnodes'});
   }
 });
 

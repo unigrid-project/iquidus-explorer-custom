@@ -7,7 +7,7 @@ block content
       var iconOpen = '<i class="mn-status-open fa fa-check-square"></i>';
       var iconClosed = '<i class="mn-status-closed fa fa-exclamation-triangle"></i>';
 
-      $('#masternodes-table').dataTable({
+      $('#gridnodes-table').dataTable({
         autoWidth: true,
         searching: false,
         ordering: false,
@@ -15,15 +15,15 @@ block content
         lengthChange: true,
         processing: true,
         ajax: {
-          url: '/api/getmasternodes',
+          url: '/api/getgridnodes',
           dataSrc: function ( json ) {
-            var masternodes = [];
+            var gridnodes = [];
 
             json.forEach(function(e) {
-              masternodes.push({'address': e.ipaddr, 'pubkey': e.addr, 'status': iconChecking});
+              gridnodes.push({'address': e.ipaddr, 'pubkey': e.addr, 'status': iconChecking});
             });
 
-            return masternodes;
+            return gridnodes;
           }
         },
         columns: [
@@ -36,7 +36,7 @@ block content
             var row = this.row(index);
             var host = row.data()['address'].split(':')[0];
             var port = row.data()['address'].split(':')[1];
-            var destination = '/ext/ismasternodeopen/' + host + '/' + port;
+            var destination = '/ext/isgridnodeopen/' + host + '/' + port;
 
             $.ajax({url: destination, success: function(result) {
               if (result === 'true') {
@@ -54,7 +54,7 @@ block content
     .panel.panel-default
       .panel-heading
         strong #{settings.locale.mn}
-      table#masternodes-table.table.table-striped
+      table#gridnodes-table.table.table-striped
         thead
           tr
             th.text-center #{settings.locale.net_address}

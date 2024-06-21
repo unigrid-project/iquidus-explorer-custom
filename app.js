@@ -41,7 +41,7 @@ var express = require('express'),
   lib = require('./lib/explorer'),
   db = require('./lib/database'),
   locale = require('./lib/locale'),
-  mn = require('./lib/masternode'),
+  mn = require('./lib/gridnode'),
   request = require('request'),
   RpcClient = require('node-json-rpc2').Client;
 
@@ -60,7 +60,7 @@ var client = new RpcClient({
 
 if (settings.heavy != true) {
   bitcoinapi.setAccess('only', ['getinfo', 'getnetworkhashps', 'getmininginfo','getdifficulty', 'getconnectioncount',
-    'getblockcount', 'getblockhash', 'getblock', 'getrawtransaction', 'getpeerinfo', 'gettxoutsetinfo']);
+    'getblockcount', 'getblockhash', 'getblock', 'getrawtransaction', 'getpeerinfo', 'gettxoutsetinfo', 'getgridnodecount']);
 } else {
   // enable additional heavy api calls
   /*
@@ -77,7 +77,7 @@ if (settings.heavy != true) {
   bitcoinapi.setAccess('only', ['getinfo', 'getstakinginfo', 'getnetworkhashps', 'getdifficulty', 'getconnectioncount',
     'getblockcount', 'getblockhash', 'getblock', 'getrawtransaction','getmaxmoney', 'getvote',
     'getmaxvote', 'getphase', 'getreward', 'getnextrewardestimate', 'getnextrewardwhenstr',
-    'getnextrewardwhensec', 'getsupply', 'gettxoutsetinfo']);
+    'getnextrewardwhensec', 'getsupply', 'gettxoutsetinfo', 'getgridnodecount']);
 }
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -91,9 +91,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
-app.use('/api/getmasternodes', function(req, res) {
+app.use('/api/getgridnodes', function(req, res) {
   var mn = function(mnp) {
-    client.call({method: 'masternode', params: mnp}, function(ierr, ires) {
+    client.call({method: 'gridnode', params: mnp}, function(ierr, ires) {
       if (ierr) {
         console.log(ierr);
         return;
@@ -180,7 +180,7 @@ app.use('/ext/connections', function(req,res){
   });
 });
 
-app.use('/ext/ismasternodeopen/:host/:port', function(req, res) {
+app.use('/ext/isgridnodeopen/:host/:port', function(req, res) {
   mn.is_open(req.param('host'), req.param('port'), function(perror, pstatus) {
     res.send(pstatus == 'open' ? 'true' : 'false');
   });

@@ -176,6 +176,9 @@ is_locked(function (exists) {
                       });
                     });
                   } else if (mode == 'update') {
+           stats.last=2750127
+	   stats.count=2751967
+
                     db.update_tx_db(settings.coin, stats.last, stats.count, settings.update_timeout, function(){
                       db.update_richlist('received', function(){
                         db.update_richlist('balance', function(){

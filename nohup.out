@@ -1,0 +1,47 @@
+(node:3268) ExperimentalWarning: The fs.promises API is experimental
+npm WARN npm npm does not support Node.js v10.13.0
+npm WARN npm You should probably upgrade to a newer version of node as we
+npm WARN npm can't make any promises that npm will work with this version.
+npm WARN npm You can find the latest version at https://nodejs.org/
+
+> explorer@1.6.1 start
+> node --stack-size=10000 ./bin/cluster
+
+Starting cluster with pid: 3280
+(node:3353) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3306) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3353) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3306) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3331) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3339) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3361) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3323) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3339) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3323) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3361) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3297) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3297) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3298) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3291) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3298) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3291) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3331) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3317) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3317) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3304) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3304) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3325) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3325) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:3291) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3306) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3339) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3323) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3353) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3361) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3297) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3317) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3331) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3304) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3298) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+(node:3325) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+Cluster shutting down..
